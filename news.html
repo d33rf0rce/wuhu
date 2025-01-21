@@ -1,0 +1,26 @@
+---
+layout: page
+content_element: section
+
+icon: explore
+title: News
+subtitle: News from the Wuhu Island Directorate of Public Information
+header_color: "#540803"
+---
+
+<section class="news-grid">
+  {% for post in site.posts %}
+    <a href="{{ post.url | relative_url }}" class="news-item">
+      <span class="news-item-hero" style="background-image:url({{ post.hero | relative_url }});"></span>
+      <span class="news-item-categories">
+        {% for category in post.categories %}
+          {% if category != "news" %}
+            <div class="news-item-category">{{category}}</div>
+          {% endif %}
+        {% endfor %}
+      </span>
+      <span class="news-item-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <span class="news-item-title">{{ post.title }}</span>
+    </a>
+  {% endfor %}
+</section>

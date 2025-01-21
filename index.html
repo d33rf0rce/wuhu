@@ -1,0 +1,108 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+---
+
+<style>
+  body > main > header {
+    background-color: #e0e0e0;
+    background-image: url({{ '/assets/images/planes.png' | relative_url }});
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    padding: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+    aspect-ratio: 1.75;
+
+    h1 {
+      margin: 0;
+      text-shadow: 0 0 16px black;
+      user-select: none;
+    }
+  }
+</style>
+
+<main class="wrapper">
+  <header>
+    <div class="header-overlay">
+      <h1>Welcome to Wuhu Island</h1>
+    </div>
+  </header>
+
+  <section style="display:flex; flex-direction:column; gap:0.5em">
+    <section class="link-grid">
+      <a href="{{ '/discover.html' | relative_url }}" class="link-grid-item" style="background-color:#3A0354">
+        <span class="link-grid-item-icon material-symbols-outlined" aria-hidden="true">history_edu</span>
+        <span class="link-grid-item-title" role="heading">Discover</span>
+        <div class="link-grid-item-subtitle">The rich history of the islands</div>
+      </a>
+      <a href="{{ '/visit.html' | relative_url }}" class="link-grid-item" style="background-color:#032854">
+        <span class="link-grid-item-icon material-symbols-outlined" aria-hidden="true">directions_boat</span>
+        <span class="link-grid-item-title" role="heading">Visit</span>
+        <div class="link-grid-item-subtitle">Book travel and accomodation</div>
+      </a>
+      <a href="{{ '/map.html' | relative_url }}" class="link-grid-item" style="background-color:#035415">
+        <span class="link-grid-item-icon material-symbols-outlined" aria-hidden="true">explore</span>
+        <span class="link-grid-item-title" role="heading">Map</span>
+        <div class="link-grid-item-subtitle">Find your way around the islands</div>
+      </a>
+      <a href="{{ '/news.html' | relative_url }}" class="link-grid-item" style="background-color:#540803">
+        <span class="link-grid-item-icon material-symbols-outlined" aria-hidden="true">newspaper</span>
+        <span class="link-grid-item-title" role="heading">News</span>
+        <div class="link-grid-item-subtitle">Keep up to date with island events</div>
+      </a>
+    </section>
+
+    <section class="link-carousel" style="background-color:#495403">
+      <div class="link-carousel-meta">
+        <span class="link-carousel-meta-icon material-symbols-outlined" aria-hidden="true">directions_walk</span>
+        <span class="link-carousel-meta-title" role="heading">Explore</span>
+        <div class="link-carousel-meta-subtitle">The many activities around Wuhu</div>
+      </div>
+
+      <a href="#" class="link-carousel-item">
+        <span class="link-carousel-item-hero"></span>
+        <span class="link-carousel-item-title" role="heading">Basketball Court</span>
+        <div class="link-carousel-item-subtitle">Basket&nbsp;Street, Wuhu&nbsp;Town</div>
+      </a>
+      <a href="#" class="link-carousel-item">
+        <span class="link-carousel-item-hero"></span>
+        <span class="link-carousel-item-title" role="heading">Bowling Alley</span>
+        <div class="link-carousel-item-subtitle">Bowling&nbsp;Street, Wuhu&nbsp;Town</div>
+      </a>
+      <a href="#" class="link-carousel-item">
+        <span class="link-carousel-item-hero"></span>
+        <span class="link-carousel-item-title" role="heading">Maka Wuhu</span>
+        <div class="link-carousel-item-subtitle">Wuhu&nbsp;Island Mountain Region</div>
+      </a>
+    </section>
+  </section>
+
+  <h2>Recent News</h2>
+  <section class="news-grid">
+    {% assign posts = site.posts | slice: 0, 3 %}
+    {% for post in posts %}
+      <a href="{{ post.url | relative_url }}" class="news-item">
+        <span class="news-item-hero" style="background-image:url({{ post.hero | relative_url }});"></span>
+        <span class="news-item-categories">
+          {% for category in post.categories %}
+            {% if category != "news" %}
+              <div class="news-item-category">{{category}}</div>
+            {% endif %}
+          {% endfor %}
+        </span>
+        <span class="news-item-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="news-item-title">{{ post.title }}</span>
+      </a>
+    {% endfor %}
+  </section>
+</main>

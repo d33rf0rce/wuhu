@@ -1,0 +1,121 @@
+@use "wuhu/vars";
+
+.link-grid {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0.5em;
+
+  .link-grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: flex-end;
+    gap: 0.25em;
+
+    padding: 1em;
+
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 1em;
+
+    .link-grid-item-icon {
+      font-size: 4em;
+      justify-self: flex-start;
+      align-self: flex-end;
+      flex-grow: 1;
+    }
+
+    .link-grid-item-title {
+      font-family: vars.$heading-font-family;
+      font-size: 1.25em;
+      font-weight: 600;
+    }
+  }
+
+  @media screen and (min-width: calc(vars.$screen-break / 2)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: vars.$screen-break) {
+    grid-auto-flow: column;
+
+    .link-grid-item {
+      aspect-ratio: 1;
+    }
+  }
+}
+
+.link-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 12em;
+  gap: 0.25em;
+  overflow-x: auto;
+  padding: 0.5em;
+
+  background-color: black;
+  color: white;
+  border-radius: 1em;
+
+  .link-carousel-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: flex-end;
+    gap: 0.25em;
+    user-select: none;
+    position: sticky;
+
+    padding: 0.5em;
+
+    // background: red;
+    color: white;
+    text-decoration: none;
+
+    .link-carousel-meta-icon {
+      font-size: 4em;
+      flex-grow: 1;
+      align-self: flex-end;
+    }
+
+    .link-carousel-meta-title {
+      font-family: vars.$heading-font-family;
+      font-size: 1.25em;
+      font-weight: 600;
+    }
+  }
+
+  .link-carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.25em;
+
+    aspect-ratio: 0.9;
+    background-color: white;
+    color: black;
+    border-radius: 0.5em;
+    padding: 0.25em;
+    text-decoration: none;
+
+    .link-carousel-item-hero {
+      background: black;
+      height: 6em;
+      border-radius: 0.25em;
+    }
+
+    .link-carousel-item-title {
+      font-family: vars.$heading-font-family;
+      font-size: 1.25em;
+      font-weight: 600;
+      padding-inline: 0.25em;
+    }
+
+    .link-carousel-item-subtitle {
+      padding-inline: 0.25em;
+    }
+  }
+}

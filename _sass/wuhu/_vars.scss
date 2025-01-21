@@ -1,0 +1,7 @@
+$main-font-family: "PT Sans", sans-serif;
+$heading-font-family: "PT Serif", serif;
+$mono-font-family: "PT Mono", monospace;
+
+$wrap-width: 720px;
+$edge-padding: 0.5rem;
+$screen-break: calc($wrap-width + (2 * $edge-padding));

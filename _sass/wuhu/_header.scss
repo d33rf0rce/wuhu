@@ -1,0 +1,27 @@
+@use "wuhu/vars";
+
+.layout-page {
+  main > header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+
+    background: black;
+    color: white;
+
+    padding: 1.25em 1.5em;
+    border-radius: 1em;
+    margin-bottom: 0.5em;
+
+    user-select: none;
+
+    .header-icon {
+      font-size: 48px;
+    }
+
+    h1,
+    p {
+      margin-block: 0;
+    }
+  }
+}

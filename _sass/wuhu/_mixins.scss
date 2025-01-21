@@ -1,0 +1,8 @@
+@use "wuhu/vars";
+
+@mixin wrapper {
+  width: calc(100vw - 2 * (vars.$edge-padding));
+  min-width: 300px;
+  max-width: vars.$wrap-width;
+  margin-inline: auto;
+}

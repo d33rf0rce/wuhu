@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<main class="wrapper">
+  <header style="background-color:{{ page.header_color }};">
+    <div class="header-icon material-symbols-outlined">{{ page.icon }}</div>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.subtitle }}</p>
+  </header>
+
+  <{{ page.content_element | default: 'article' }}>
+    {{ content }}
+  </{{ page.content_element | default: 'article' }}>
+</main>
